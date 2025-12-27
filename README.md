@@ -9,22 +9,24 @@
 
 ---
 
-## 📝 Proje Vizyonu: Neden "Ederi Ne?"
+## 📝 Proje Vizyonu & Hakkında
 
-Geleneksel fiyat karşılaştırma platformları genellikle sadece büyük e-ticaret sitelerine odaklanır. **Ederi Ne?** ise odağını sokağa, mahalle marketine ve yerel manava çevirir. 
+Günümüzün dinamik ekonomik koşullarında tüketicinin en büyük ihtiyacı güncel ve şeffaf bilgiye ulaşmaktır. **Ederi Ne?**, geleneksel fiyat karşılaştırma sitelerinin aksine odağını sokağa, mahalle marketine ve yerel satıcılara çevirir. 
 
 ### 💡 Nasıl Değer Yaratır?
-* **Kolektif Veri:** Kullanıcılar gördükleri fiyatları saniyeler içinde yükler, böylece "en ucuz" reklamla değil, gerçekle belirlenir.
+* **Kolektif Veri:** Kullanıcılar gördükleri fiyatları saniyeler içinde yükler, böylece "en ucuz" reklamla değil, gerçek saha verisiyle belirlenir.
 * **Topluluk Denetimi:** Paylaşılan fiyatlar diğer kullanıcılar tarafından "Doğru" veya "Hatalı" olarak oylanır.
 * **Güven Endeksi:** 5 ve üzeri şikayet alan ürünler otomatik olarak **"ŞÜPHELİ"** etiketiyle işaretlenerek yanıltıcı bilginin önüne geçilir.
 
 ---
 
-## 📸 Uygulama Ekran Görüntüleri
+## 📸 Uygulama Ekran Görüntüleri & Akışı
 
-| Ana Liste (v2) | Ürün Detay & Yorum | Fiyat Ekleme | Profil & İstatistik |
-|:---:|:---:|:---:|:---:|
-| <img src="screenshots/home.png" width="200"> | <img src="screenshots/comments.png" width="200"> | <img src="screenshots/add.png" width="200"> | <img src="screenshots/profile.png" width="200"> |
+Uygulamanın v2.0.0 sürümüyle yenilenen modern arayüzü ve kullanıcı deneyimi (UX) akışı:
+
+| Giriş & Kayıt | Ana Liste (v2) | Ürün Detay & Yorum | Fiyat Ekleme | Profil & İstatistik |
+|:---:|:---:|:---:|:---:|:---:|
+| <img src="screenshots/auth.png" width="180"> | <img src="screenshots/home.png" width="180"> | <img src="screenshots/comments.png" width="180"> | <img src="screenshots/add.png" width="180"> | <img src="screenshots/profile.png" width="180"> |
 
 > *Not: Ekran görüntülerini aktif etmek için `screenshots/` klasörüne ilgili dosyaları yüklemeyi unutmayın.*
 
@@ -32,7 +34,7 @@ Geleneksel fiyat karşılaştırma platformları genellikle sadece büyük e-tic
 
 ## 📥 Hemen Deneyin (v2.0.0 APK)
 
-Uygulamanın en güncel ve kararlı sürümünü aşağıdaki butona tıklayarak doğrudan indirebilirsiniz:
+Uygulamanın en güncel ve kararlı sürümünü aşağıdaki butona tıklayarak doğrudan Android cihazınıza indirebilirsiniz:
 
 [![Download APK](https://img.shields.io/badge/İndir-Ederi_Ne_v2.0.0_APK-brightgreen?style=for-the-badge&logo=android)](app-release.apk)
 
@@ -40,20 +42,24 @@ Uygulamanın en güncel ve kararlı sürümünü aşağıdaki butona tıklayarak
 
 ## 💎 v2.0.0 Sürümüyle Gelen Büyük Yenilikler
 
-Bu güncelleme, uygulamanın beta aşamasından tam kapasite kararlı sürümü geçişini temsil eder.
+Bu güncelleme, projenin beta aşamasından tam kararlı sürüme geçişini temsil eder.
+
+### 🔐 Gelişmiş Kimlik Doğrulama & Giriş
+* **Avatar & Rol Sistemi:** Kayıt sırasında kullanıcıların kendilerini ifade edebileceği modern avatar seçimleri ve "Tüketici/Satıcı" rolleri eklendi.
+* **Modern Auth Arayüzü:** Giriş ve kayıt ekranları, kullanıcıyı karşılayan şık ve dinamik bir yapıyla yeniden tasarlandı.
 
 ### 📍 Gelişmiş Konum Hassasiyeti
-* **Lokasyon Bazlı Kartlar:** Her ürün kartına entegre edilen **İl ve İlçe** bilgisi sayesinde, fiyatın nerede geçerli olduğu artık net bir şekilde görülmektedir.
-* **Modern UX:** Konum göstergeleri ve market ikonları ile arayüz hiyerarşisi yeniden tasarlandı.
+* **Lokasyon Bazlı Kartlar:** Her ürün kartına entegre edilen **İl ve İlçe** bilgisi sayesinde, fiyatın nerede geçerli olduğu net bir şekilde görülmektedir.
+* **Gelişmiş UX:** Konum göstergeleri ve market ikonları ile arayüz hiyerarşisi optimize edildi.
 
 ### 🔄 Akıllı Navigasyon & Senkronizasyon
-* **Profil-Liste Entegrasyonu:** Kullanıcı profilindeki paylaşımlardan ana listedeki ilgili ürüne "akıllı odaklanma" ile geçiş özelliği eklendi.
+* **Profil-Liste Entegrasyonu:** Kullanıcı profilindeki paylaşımlardan ana listedeki ilgili ürüne "akıllı odaklanma" ile geçiş özelliği sağlandı.
 * **Hata Giderimi:** Açılıştaki `SplashScreen` donmaları ve `MainNavigation` üzerindeki `GlobalKey` çakışmaları tamamen çözüldü.
 
 ### 🏗️ Teknik Mimari İyileştirmeleri
-* **Merkezi Veri Yönetimi:** `DataController` üzerinden yönetilen `allProductsList` yapısı ile veri yükleme hızı optimize edildi.
-* **Güvenlik:** Hassas Firebase anahtarları (`service-account.json`) koruma altına alındı ve `.gitignore` yapılandırması modernize edildi.
-* **Modern Dart Standartları:** Flutter 3.x uyumlu `withValues` renk yönetimi ve `const` constructor optimizasyonları yapıldı.
+* **Merkezi Veri Yönetimi:** `DataController` üzerinden yönetilen `allProductsList` yapısı ile veri yükleme hızı artırıldı.
+* **Güvenlik:** Hassas Firebase anahtarları (`service-account.json`) koruma altına alındı ve `.gitignore` yapılandırması güncellendi.
+* **Modern Dart:** Flutter 3.x uyumlu `withValues` renk yönetimi ve `const` constructor optimizasyonları yapıldı.
 
 ---
 
