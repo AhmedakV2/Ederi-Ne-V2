@@ -100,10 +100,9 @@ Model;
 
 ## 📥 Demo (APK)
 
-Canlı ürünü denemek için:
+Uygulamanın en güncel ve kararlı sürümünü aşağıdaki butona tıklayarak doğrudan Android cihazınıza indirebilirsiniz:
 
-[![Download APK](https://img.shields.io/badge/Android-APK_İndir-brightgreen?style=for-the-badge)](https://github.com/AhmedakV2/Ederi-Ne-V2/raw/main/app-release.apk)
-
+[![Download APK](https://img.shields.io/badge/İndir-Ederi_Ne_v2.0.0_APK-brightgreen?style=for-the-badge&logo=android)](https://github.com/AhmedakV2/Ederi-Ne-V2/raw/main/app-release.apk)
 ---
 
 ## 🌱 Gelecek Vizyonu
