@@ -76,3 +76,30 @@ Bu güncelleme, projenin beta aşamasından tam kararlı sürüme geçişini tem
 1. **Repoyu Klonlayın**:
    ```bash
    git clone [https://github.com/AhmedakV2/Ederi-Ne-V2.git](https://github.com/AhmedakV2/Ederi-Ne-V2.git)
+
+2. Bağımlılıkları Yükleyin
+flutter pub get
+
+3. Firebase Yapılandırması
+
+Kendi google-services.json dosyanızı android/app/ dizinine ekleyin.
+
+Firebase Console üzerinden Authentication ve Firestore servislerini aktif edin.
+
+4. Hassas Veriler ve Güvenlik
+
+Firebase yapılandırma dosyalarınız GitHub tarafından engellenirse, güvenlik panelinden onay vermeniz gerekebilir.
+
+Güvenlik için hassas .json dosyalarınızı .gitignore dosyasına eklemeyi unutmayın.
+
+5. Uygulamayı Çalıştırın
+flutter run
+
+🤝 Katkıda Bulunma
+
+Bu proje açık kaynaklı bir topluluk girişimidir.
+Katkı sağlamak isterseniz bir Issue açabilir veya doğrudan Pull Request gönderebilirsiniz.
+
+Geliştirici: AhmedakV2
+Sürüm: v2.0.0-Stable
+Dosya Boyutu: ~51.1 MB
