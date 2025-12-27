@@ -98,7 +98,7 @@ Model;
 
 ---
 
-## 📥 Demo (APK)
+## 📥 Hemen Deneyin (v2.0.0 APK)
 
 Uygulamanın en güncel ve kararlı sürümünü aşağıdaki butona tıklayarak doğrudan Android cihazınıza indirebilirsiniz:
 
