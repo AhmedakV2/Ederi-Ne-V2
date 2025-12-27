@@ -3,10 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../data/city_data.dart';
 import '../../core/theme/app_theme.dart';
-import '../../data/data_controller.dart'; // DataController eklendi
+import '../../data/data_controller.dart'; 
 import '../navigation/main_navigation.dart';
 
-// Widget Importları
+
 import 'widgets_add/add_price_header.dart';
 import 'widgets_add/price_form_fields.dart';
 import 'widgets_add/save_price_button.dart';
@@ -19,20 +19,20 @@ class AddPriceScreen extends StatefulWidget {
 }
 
 class _AddPriceScreenState extends State<AddPriceScreen> {
-  // DataController örneği
+  
   final db = DataController();
 
-  // Form Kontrolcüleri
+  
   final _nameC = TextEditingController();
   final _priceC = TextEditingController();
   final _marketC = TextEditingController();
   
-  // Seçim Değişkenleri
+ 
   String? _selectedCategory;
   String? _selectedCity;
   String? _selectedDistrict;
 
-  // Yükleniyor durumu
+  
   bool _isLoading = false;
 
   @override
@@ -41,9 +41,9 @@ class _AddPriceScreenState extends State<AddPriceScreen> {
     _prepareInitialData();
   }
 
-  // --- BAŞLANGIÇ VERİLERİNİ HAZIRLA ---
+ 
   void _prepareInitialData() {
-    // DataController'daki güncel verileri kullanıyoruz
+    
     setState(() {
       if (db.isSeller) {
         _marketC.text = db.storeName ?? "";
@@ -61,9 +61,9 @@ class _AddPriceScreenState extends State<AddPriceScreen> {
     super.dispose();
   }
 
-  // --- KAYDETME İŞLEMİ (FIREBASE) ---
+  
   void _handleSave() async {
-    // 1. Doğrulama
+    
     if (_nameC.text.trim().isEmpty ||
         _priceC.text.trim().isEmpty ||
         _selectedCategory == null ||
@@ -85,34 +85,34 @@ class _AddPriceScreenState extends State<AddPriceScreen> {
       final user = FirebaseAuth.instance.currentUser;
       if (user == null) throw Exception("Kullanıcı oturumu bulunamadı.");
 
-      // Satıcıysa Mağaza Adı, değilse Kendi Adı (DataController'dan geliyor)
+      
       String addedByName = (db.isSeller && db.storeName != null) ? db.storeName! : db.userName;
 
-      // 2. Firebase'e Kaydet
+      
       await FirebaseFirestore.instance.collection('products').add({
         'name': _nameC.text.trim(),
         'price': double.tryParse(_priceC.text.replaceAll(',', '.')) ?? 0.0,
         'market': _marketC.text.trim().isEmpty ? "Bilinmeyen Market" : _marketC.text.trim(),
         'category': _selectedCategory,
         'city': _selectedCity,
-        'district': _selectedDistrict, // Firebase standardı için neighborhood yerine district daha uygun olabilir
+        'district': _selectedDistrict, 
         'neighborhood': _selectedDistrict, 
         'rating': 0.0,
         
-        // --- İLİŞKİSEL VERİLER ---
+        
         'ownerId': user.uid,
         'addedBy': addedByName,
         'userRole': db.userRole,
         'userAvatar': db.userAvatar,
         'createdAt': FieldValue.serverTimestamp(),
         
-        // --- GÜVENLİK VERİLERİ ---
+        
         'confirmationCount': 0, 
         'reportCount': 0,       
-        'trusted': db.isSeller, // Satıcılar otomatik güvenilir sayılabilir
+        'trusted': db.isSeller, 
       });
 
-      // 3. Başarılıysa Navigasyon
+      
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
@@ -122,10 +122,10 @@ class _AddPriceScreenState extends State<AddPriceScreen> {
           ),
         );
         
-        // Önceki sayfaya dön (GlobalKey hatası almamak için pushAndRemoveUntil yerine pop tercih edilebilir)
+        
         Navigator.pop(context);
         
-        // Eğer MainNavigation'da ana sayfaya dönmek gerekiyorsa:
+        
         mainNavKey.currentState?.changeTab(0);
       }
 
@@ -166,7 +166,7 @@ class _AddPriceScreenState extends State<AddPriceScreen> {
                 ),
                 child: Column(
                   children: [
-                    // --- ÜRÜN ADI ---
+                    
                     PriceTextField(
                       controller: _nameC,
                       label: "Ürün Adı",
@@ -174,7 +174,7 @@ class _AddPriceScreenState extends State<AddPriceScreen> {
                     ),
                     const SizedBox(height: 15),
 
-                    // --- FİYAT ---
+                    
                     PriceTextField(
                       controller: _priceC,
                       label: "Fiyat (₺)",
@@ -183,12 +183,12 @@ class _AddPriceScreenState extends State<AddPriceScreen> {
                     ),
                     const SizedBox(height: 15),
                     
-                    // --- MARKET ADI ---
+                    
                     PriceTextField(
                       controller: _marketC,
                       label: "Market/Mağaza Adı",
                       icon: Icons.storefront_outlined,
-                      readOnly: db.isSeller, // DataController'dan çekiyoruz
+                      readOnly: db.isSeller, 
                     ),
                     if (db.isSeller)
                        Padding(
@@ -203,7 +203,7 @@ class _AddPriceScreenState extends State<AddPriceScreen> {
                       ),
                     const SizedBox(height: 15),
 
-                    // --- KATEGORİ ---
+                    
                     PriceDropdown(
                       value: _selectedCategory,
                       hint: "Kategori Seçin",
@@ -213,7 +213,7 @@ class _AddPriceScreenState extends State<AddPriceScreen> {
                     ),
                     const SizedBox(height: 15),
 
-                    // --- İL SEÇİMİ ---
+                    
                     PriceDropdown(
                       value: _selectedCity,
                       hint: "İl Seçin",
@@ -228,7 +228,7 @@ class _AddPriceScreenState extends State<AddPriceScreen> {
                     ),
                     const SizedBox(height: 15),
 
-                    // --- İLÇE SEÇİMİ ---
+                    
                     Stack(
                       children: [
                         PriceDropdown(
@@ -266,7 +266,7 @@ class _AddPriceScreenState extends State<AddPriceScreen> {
                       ),
                     const SizedBox(height: 30),
 
-                    // --- KAYDET BUTONU ---
+                    
                     _isLoading 
                         ? const CircularProgressIndicator(color: AppTheme.accentGold)
                         : SavePriceButton(onPressed: _handleSave),

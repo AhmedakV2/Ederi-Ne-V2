@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart'; // YENİ: Token kaydı için
-import 'package:firebase_messaging/firebase_messaging.dart'; // YENİ: Bildirim servisi
+import 'package:cloud_firestore/cloud_firestore.dart'; 
+import 'package:firebase_messaging/firebase_messaging.dart'; 
 import 'package:shared_preferences/shared_preferences.dart'; 
 import '../../data/data_controller.dart'; 
 import 'auth_screen.dart';
@@ -59,19 +59,19 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     _checkUserSession();
   }
 
-  // --- YENİ: BİLDİRİM TOKEN'I KAYDETME FONKSİYONU ---
+  
   Future<void> _saveUserToken(User user) async {
     try {
       FirebaseMessaging messaging = FirebaseMessaging.instance;
       
-      // İzin İste
+     
       await messaging.requestPermission();
       
-      // Token Al
+     
       String? token = await messaging.getToken();
       
       if (token != null) {
-        // Veritabanına Yaz
+       
         await FirebaseFirestore.instance.collection('users').doc(user.uid).update({
           'fcmToken': token,
         });
@@ -79,13 +79,13 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       }
     } catch (e) {
       debugPrint("Token hatası: $e");
-      // Hata olsa bile uygulama açılmaya devam etsin, engellemesin.
+      
     }
   }
 
-  // --- OTURUM KONTROLÜ ---
+  
   void _checkUserSession() async {
-    // Animasyon süresi kadar bekle
+    
     await Future.delayed(const Duration(seconds: 3));
 
     final user = FirebaseAuth.instance.currentUser;
@@ -94,14 +94,14 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
     if (mounted) {
       if (user != null) {
-        // Kullanıcı var
+        
         if (rememberMe) {
-          // Durum 1: Beni Hatırla AÇIK -> Verileri yükle, Token'ı güncelle ve Gir.
+         
           
-          // Paralel olarak hem veriyi çek hem token'ı kaydet (Hız kazandırır)
+          
           await Future.wait([
             DataController().loadUserData(),
-            _saveUserToken(user), // Token kaydı burada çağrılıyor
+            _saveUserToken(user),
           ]);
           
           if (mounted) {
@@ -111,7 +111,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
             );
           }
         } else {
-          // Durum 2: Beni Hatırla KAPALI -> Çıkış yap.
+         
           await FirebaseAuth.instance.signOut();
           DataController().clearSession();
           
@@ -123,7 +123,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
           }
         }
       } else {
-        // Durum 3: Kullanıcı yok -> Giriş Ekranı
+        
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const AuthScreen()),
@@ -141,7 +141,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.transparent, // Tema rengi main.dart'tan veya container'dan gelir
+      backgroundColor: Colors.transparent, 
       body: Container(
         width: double.infinity,
         height: double.infinity,
@@ -152,7 +152,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // --- LOGO ---
+              
               SlideTransition(
                 position: _logoSlideAnimation,
                 child: Image.asset(
@@ -163,14 +163,14 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
               
               const SizedBox(height: 40),
 
-              // --- YAZILAR ---
+              
               FadeTransition(
                 opacity: _textFadeAnimation,
                 child: SlideTransition(
                   position: _textSlideAnimation,
                   child: Column(
                     children: [
-                      // Başlık
+                      
                       ShaderMask(
                         blendMode: BlendMode.srcIn,
                         shaderCallback: (bounds) => AppTheme.accentGradient.createShader(
@@ -193,7 +193,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                         ),
                       ),
                       const SizedBox(height: 10),
-                      // Slogan
+                      
                       ShaderMask(
                         blendMode: BlendMode.srcIn,
                         shaderCallback: (bounds) => AppTheme.accentGradient.createShader(

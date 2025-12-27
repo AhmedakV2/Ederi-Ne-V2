@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_theme.dart';
 
-// --- TEXT FIELD WIDGET ---
+
 class PriceTextField extends StatelessWidget {
   final TextEditingController controller;
   final String label;
   final IconData icon;
   final bool isNumber;
-  final bool readOnly; // YENİ: Salt okunur özelliği
+  final bool readOnly; 
 
   const PriceTextField({
     super.key,
@@ -15,27 +15,27 @@ class PriceTextField extends StatelessWidget {
     required this.label,
     required this.icon,
     this.isNumber = false,
-    this.readOnly = false, // Varsayılan false (yazılabilir)
+    this.readOnly = false, 
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        // Eğer salt okunursa arka planı hafif gri yap, değilse beyaz
+        
         color: readOnly ? Colors.grey.shade200 : Colors.white,
         borderRadius: BorderRadius.circular(30),
         border: Border.all(color: AppTheme.accentGold, width: 1.2),
       ),
       child: TextField(
         controller: controller,
-        readOnly: readOnly, // TextField'a aktar
+        readOnly: readOnly, 
         keyboardType: isNumber
             ? const TextInputType.numberWithOptions(decimal: true)
             : TextInputType.text,
         style: TextStyle(
             fontWeight: FontWeight.w600, 
-            // Salt okunursa rengi biraz soldur
+            
             color: readOnly ? AppTheme.navyDark.withOpacity(0.7) : AppTheme.navyDark
         ),
         decoration: InputDecoration(
@@ -45,7 +45,7 @@ class PriceTextField extends StatelessWidget {
             padding: const EdgeInsets.all(12.0),
             child: GradientIcon(
                 icon,
-                // Salt okunursa ikon gri olsun, değilse altın rengi
+                
                 gradient: readOnly 
                     ? const LinearGradient(colors: [Colors.grey, Colors.grey]) 
                     : AppTheme.accentGradient, 
@@ -61,13 +61,13 @@ class PriceTextField extends StatelessWidget {
   }
 }
 
-// --- DROPDOWN WIDGET ---
+
 class PriceDropdown extends StatelessWidget {
   final String? value;
   final String hint;
   final IconData icon;
   final List<String> items;
-  // Null olabilirliği yönetmek için ValueChanged kullanıyoruz
+  
   final ValueChanged<String?>? onChanged; 
 
   const PriceDropdown({
@@ -81,7 +81,7 @@ class PriceDropdown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // onChanged null ise (yani kilitliyse) gri arka plan
+   
     bool isDisabled = onChanged == null;
 
     return Container(
@@ -135,7 +135,7 @@ class PriceDropdown extends StatelessWidget {
   }
 }
 
-// --- YARDIMCI GRADIENT ICON ---
+
 class GradientIcon extends StatelessWidget {
   final IconData icon;
   final double size;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../core/theme/app_theme.dart';
-import '../../data/data_controller.dart'; // DataController eklendi
+import '../../data/data_controller.dart'; 
 import 'widgets_list/price_header.dart';
 import 'widgets_list/price_item_card.dart';
 import 'widgets_list/price_filter_modal.dart';
@@ -14,9 +14,9 @@ class PriceListScreen extends StatefulWidget {
 }
 
 class _PriceListScreenState extends State<PriceListScreen> {
-  final db = DataController(); // DataController örneği çekildi
+  final db = DataController(); 
 
-  // Filtre State'leri
+  
   String? filterCategory;
   String? filterCity;
   String? filterDistrict;
@@ -83,7 +83,7 @@ class _PriceListScreenState extends State<PriceListScreen> {
                    return data;
                 }).toList();
 
-                // --- FİLTRELEME MANTIĞI ---
+                
                 final filteredList = allProducts.where((p) {
                   final name = p['name']?.toString().toLowerCase() ?? "";
                   final matchesSearch = name.contains(searchQuery.toLowerCase());
@@ -101,7 +101,7 @@ class _PriceListScreenState extends State<PriceListScreen> {
                   return matchesSearch && matchesCat && matchesCity && matchesLoc && matchesPrice;
                 }).toList();
 
-                // ÖNEMLİ: DataController'daki listeyi güncelle ki scroll fonksiyonu doğru indeksleri bulabilsin
+                
                 db.allProductsList = filteredList;
 
                 if (filteredList.isEmpty) {
@@ -129,7 +129,7 @@ class _PriceListScreenState extends State<PriceListScreen> {
                 }
 
                 return ListView.builder(
-                  // YENİ: Kaydırma kontrolcüsü bağlandı
+                  
                   controller: db.mainScrollController, 
                   padding: const EdgeInsets.only(top: 20, bottom: 80),
                   itemCount: filteredList.length,

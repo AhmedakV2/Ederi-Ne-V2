@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  // Bu sınıfın yanlışlıkla "new AppColors()" şeklinde başlatılmasını engeller
+  
   AppColors._();
 
   static const Color primaryBlue = Color(0xFF1E88E5);
@@ -25,6 +25,6 @@ class AppStyles {
   static const TextStyle subHeadingStyle = TextStyle(
     fontSize: 16, 
     fontWeight: FontWeight.w600,
-    color: AppColors.textDark // Tutarlılık için renk eklendi
+    color: AppColors.textDark 
   );
 }

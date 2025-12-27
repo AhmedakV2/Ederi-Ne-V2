@@ -19,15 +19,15 @@ class FollowingUserCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12.0),
-      child: Material( // InkWell'in arka plan rengini bozmaması için eklendi
+      child: Material( 
         color: Colors.transparent,
         child: InkWell(
-          onTap: onTap, // Karta basınca profile gider
+          onTap: onTap, 
           borderRadius: BorderRadius.circular(20),
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             decoration: BoxDecoration(
-              // Arka plan rengini burada veriyoruz
+              
               color: Colors.white.withOpacity(0.9),
               borderRadius: BorderRadius.circular(20),
               border: Border.all(color: AppTheme.accentGold.withOpacity(0.3)),
@@ -41,7 +41,7 @@ class FollowingUserCard extends StatelessWidget {
             ),
             child: Row(
               children: [
-                // --- AVATAR ---
+                
                 Container(
                   padding: const EdgeInsets.all(2),
                   decoration: const BoxDecoration(
@@ -63,7 +63,7 @@ class FollowingUserCard extends StatelessWidget {
                 ),
                 const SizedBox(width: 15),
                 
-                // --- KULLANICI ADI ---
+                
                 Expanded(
                   child: Text(
                     userName,
@@ -75,17 +75,16 @@ class FollowingUserCard extends StatelessWidget {
                   ),
                 ),
 
-                // --- ÇIKAR BUTONU ---
-                // GestureDetector kullanarak butonun tıklamasını karttan ayırıyoruz
+                
                 GestureDetector(
-                  onTap: () {}, // InkWell'in bu bölgede çalışmasını durdurmak için boş bırakıyoruz
+                  onTap: () {}, 
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.red.withOpacity(0.1),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: TextButton(
-                      onPressed: onUnfollow, // Sadece takipten çıkarır
+                      onPressed: onUnfollow, 
                       style: TextButton.styleFrom(
                         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                         minimumSize: Size.zero,

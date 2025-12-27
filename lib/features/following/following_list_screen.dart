@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../../data/data_controller.dart';
 import '../../core/theme/app_theme.dart';
 import 'widgets/following_user_card.dart';
-// PROFİL SAYFASINI BURAYA IMPORT ET
+
 import '../../features/profile/profile_screen.dart'; 
 
 class FollowingListScreen extends StatefulWidget {
@@ -126,15 +126,15 @@ class _FollowingListScreenState extends State<FollowingListScreen> {
 
                     return FollowingUserCard(
                       userName: name,
-                      userId: targetUserId, // YENİ: Profil yönlendirmesi için gerekli
+                      userId: targetUserId, 
                       onUnfollow: () => _handleUnfollow(targetUserId, name),
-                      // YENİ: Karta tıklandığında profile git
+                      
                       onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => ProfileScreen(
-                              targetUserId: targetUserId, // ID'yi gönderiyoruz
+                              targetUserId: targetUserId, 
                             ),
                           ),
                         );

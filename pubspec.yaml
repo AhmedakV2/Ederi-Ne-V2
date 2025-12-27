@@ -4,7 +4,7 @@ publish_to: 'none'
 version: 0.1.0
 
 environment:
-  sdk: ^3.5.0 # Sürüm numaranı senin ayarlarına göre bıraktım ama genelde 3.5.x civarıdır
+  sdk: ^3.5.0 
 
 dependencies:
   flutter:
@@ -31,7 +31,7 @@ flutter:
     - assets/service-account.json
     - assets/images/
 
-# --- İKON AYARLARI ---
+
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
@@ -39,12 +39,12 @@ flutter_launcher_icons:
   min_sdk_android: 21
   adaptive_icon_background: "#FFFFFF"
   adaptive_icon_foreground: "assets/images/Logo.png"
-  web: # Web (Chrome) ikonları için
+  web: 
     generate: true
     image_path: "assets/images/Logo.png"
     background_color: "#FFFFFF"
     theme_color: "#FFFFFF"
-  windows: # Windows masaüstü ikonları için
+  windows: 
     generate: true
     image_path: "assets/images/Logo.png"
     icon_size: 48

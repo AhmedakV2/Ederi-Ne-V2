@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_theme.dart';
-import '../../../../data/data_controller.dart'; // DataController eklendi
+import '../../../../data/data_controller.dart'; 
 import 'rating_chart_painter.dart';
 
-// --- TAB 1: HAKKINDA ---
+
 class ProfileAboutTab extends StatelessWidget {
   final String bio;
   final bool isMyProfile;
@@ -26,14 +26,14 @@ class ProfileAboutTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final db = DataController(); // DataController örneği
+    final db = DataController(); 
 
     return SingleChildScrollView(
       padding: const EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // 1. Bio Kartı
+          
           Container(
             width: double.infinity,
             padding: const EdgeInsets.all(20),
@@ -97,7 +97,7 @@ class ProfileAboutTab extends StatelessWidget {
                   color: AppTheme.navyDark)),
           const SizedBox(height: 15),
 
-          // 2. Yatay Liste (Son Gönderiler)
+          
           SizedBox(
             height: 170,
             child: displayProducts.isEmpty
@@ -114,7 +114,7 @@ class ProfileAboutTab extends StatelessWidget {
                           : (item['price'] as double? ?? 0.0);
 
                       return GestureDetector(
-                        // YENİ: Yatay listedeki ürüne tıklayınca ana sayfaya yönlendir
+                        
                         onTap: () {
                           Navigator.of(context).popUntil((route) => route.isFirst);
                           Future.delayed(const Duration(milliseconds: 300), () {
@@ -227,7 +227,7 @@ class ProfilePostsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final db = DataController(); // DataController örneği
+    final db = DataController(); 
 
     if (displayProducts.isEmpty) {
       return Center(
@@ -252,12 +252,12 @@ class ProfilePostsTab extends StatelessWidget {
             : (item['price'] as double? ?? 0.0);
 
         return GestureDetector(
-          // YENİ: Paylaşımlar listesindeki ürüne tıklayınca ana sayfaya yönlendir
+         
           onTap: () {
-            // Önce profili kapatıp ana navigasyona dön
+            
             Navigator.of(context).popUntil((route) => route.isFirst);
             
-            // Kısa bir bekleme sonrası kaydırma işlemini başlat
+           
             Future.delayed(const Duration(milliseconds: 300), () {
               db.scrollToProduct(item['id'], db.allProductsList);
             });
@@ -325,7 +325,7 @@ class ProfilePostsTab extends StatelessWidget {
                             Material(
                               color: Colors.transparent,
                               child: InkWell(
-                                // Düzenleme tıklandığında kaydırmayı engellemek için stopPropagation gibi davranır
+                                
                                 onTap: () => onEdit(item),
                                 borderRadius: BorderRadius.circular(8),
                                 child: Container(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../core/theme/app_theme.dart'; // Import yolunu kendi projene göre ayarla
+import '../../../../core/theme/app_theme.dart'; 
 
 class PriceHeader extends StatelessWidget {
   final Function(String) onSearchChanged;
@@ -24,7 +24,7 @@ class PriceHeader extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // Başlık ve Logo
+              
               Row(
                 children: [
                   const Column(
@@ -46,7 +46,7 @@ class PriceHeader extends StatelessWidget {
                   ),
                 ],
               ),
-              // Filtre Butonu
+              
               Container(
                 decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.1),
@@ -61,7 +61,7 @@ class PriceHeader extends StatelessWidget {
           ),
           const SizedBox(height: 25),
 
-          // Arama Çubuğu
+          
           TextField(
             onChanged: onSearchChanged,
             style: const TextStyle(color: AppTheme.textWhite),

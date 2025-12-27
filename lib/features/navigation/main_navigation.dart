@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/data_controller.dart';
 
-// Sayfalar
+
 import '../../features/price/price_list_screen.dart';
 import '../../features/price/add_price_screen.dart';
 import '../../features/profile/profile_screen.dart';
 
-// Dışarıdan erişim için GlobalKey
+
 final GlobalKey<MainNavigationState> mainNavKey = GlobalKey<MainNavigationState>();
 
 class MainNavigation extends StatefulWidget {
-  // Düzeltme: super.key kullanımı yeterlidir, ekstra key ataması hataya sebep olur
+  
   MainNavigation({super.key}); 
 
   @override
@@ -68,7 +68,7 @@ class MainNavigationState extends State<MainNavigation> {
             children: _pages,
           ),
 
-          // Alt Menü
+          
           Positioned(
             bottom: 0,
             left: 0,
@@ -81,7 +81,7 @@ class MainNavigationState extends State<MainNavigation> {
                 borderRadius: BorderRadius.circular(35),
                 boxShadow: [
                   BoxShadow(
-                    // Düzeltme: Yeni sürümlere uygun withValues kullanımı
+                    
                     color: Colors.black.withValues(alpha: 0.1), 
                     blurRadius: 20,
                     offset: const Offset(0, 10),

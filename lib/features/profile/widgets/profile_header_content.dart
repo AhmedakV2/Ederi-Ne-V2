@@ -34,9 +34,9 @@ class ProfileHeaderContent extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(height: 50), // AppBar payı
+          const SizedBox(height: 50), 
           
-          // --- AVATAR ---
+          
           Container(
             padding: const EdgeInsets.all(4),
             decoration: const BoxDecoration(
@@ -49,7 +49,7 @@ class ProfileHeaderContent extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           
-          // --- KULLANICI ADI ---
+          
           Text(
             displayName,
             style: const TextStyle(
@@ -57,30 +57,30 @@ class ProfileHeaderContent extends StatelessWidget {
           ),
           const SizedBox(height: 25),
 
-          // --- İSTATİSTİKLER ---
+         
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // 1. Kart: Takipçi veya Takip Edilen
+                
                 Expanded(
                   child: _buildStatCard(
                     icon: isTargetSeller ? Icons.group : Icons.person_add,
-                    // Eğer Satıcı ise Takipçilerini göster, Değilse (ve benim profilimse) Takip Ettiklerimi göster
+                    
                     value: isTargetSeller
                         ? followerCount.toString()
                         : (isMyProfile ? followingCount.toString() : "0"),
                     label: isTargetSeller ? "TAKİPÇİ" : "TAKİP EDİLEN",
-                    // Sadece "Takip Edilen" modunda ve "Benim Profilim" ise tıklanabilir
+                    
                     onTap: (!isTargetSeller && isMyProfile)
                         ? onFollowersTap
                         : null,
                   ),
                 ),
-                const SizedBox(width: 10), // Kartlar arası boşluk
+                const SizedBox(width: 10), 
                 
-                // 2. Kart: Ürün Sayısı
+                
                 Expanded(
                   child: _buildStatCard(
                     icon: Icons.shopping_basket,
@@ -88,9 +88,9 @@ class ProfileHeaderContent extends StatelessWidget {
                     label: "ÜRÜNLER",
                   ),
                 ),
-                const SizedBox(width: 10), // Kartlar arası boşluk
+                const SizedBox(width: 10), 
                 
-                // 3. Kart: Puan
+                
                 Expanded(
                   child: _buildStatCard(
                     icon: Icons.star_rounded,
@@ -117,7 +117,7 @@ class ProfileHeaderContent extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        // width: 100, // Kaldırıldı, Expanded kullanıldığı için esnek olacak
+        
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 4),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -145,13 +145,13 @@ class ProfileHeaderContent extends StatelessWidget {
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                   color: AppTheme.navyDark),
-              overflow: TextOverflow.ellipsis, // Taşarsa ... koy
+              overflow: TextOverflow.ellipsis, 
             ),
             const SizedBox(height: 4),
             Text(
               label,
               style: const TextStyle(
-                  fontSize: 10, // Font biraz küçültüldü sığması için
+                  fontSize: 10, 
                   color: Colors.grey,
                   fontWeight: FontWeight.w600),
               overflow: TextOverflow.ellipsis,
@@ -163,7 +163,7 @@ class ProfileHeaderContent extends StatelessWidget {
   }
 }
 
-// Eğer projenizde GradientIcon sınıfı yoksa bu yardımcı sınıfı kullanabilirsiniz.
+
 class GradientIcon extends StatelessWidget {
   final IconData icon;
   final double size;

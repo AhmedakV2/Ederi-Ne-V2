@@ -29,7 +29,7 @@ class _ProductCommentsSheetState extends State<ProductCommentsSheet> {
   final user = FirebaseAuth.instance.currentUser;
   String? _replyingToUserId;
 
-  // --- MODERN BİLDİRİM (V1) - KAYAN PENCERE DESTEKLİ ---
+  
   Future<void> _sendPushNotificationV1(String toUserToken, String title, String body) async {
     try {
       final String response = await rootBundle.loadString('assets/service-account.json');
@@ -44,15 +44,15 @@ class _ProductCommentsSheetState extends State<ProductCommentsSheet> {
       final String projectID = data['project_id'];
       final String postUrl = 'https://fcm.googleapis.com/v1/projects/$projectID/messages:send';
 
-      // --- KAYAN PENCERE İÇİN ÖNCELİK AYARLARI EKLENDİ ---
+      
       final Map<String, dynamic> message = {
         'message': {
           'token': toUserToken,
           'notification': {'title': title, 'body': body},
           'android': {
-            'priority': 'high', // Android Heads-up için şart
+            'priority': 'high', 
             'notification': {
-              'channel_id': 'high_importance_channel', // Android Kanal ID
+              'channel_id': 'high_importance_channel', 
               'priority': 'high',
               'sound': 'default',
             }
@@ -61,7 +61,7 @@ class _ProductCommentsSheetState extends State<ProductCommentsSheet> {
             'payload': {
               'aps': {
                 'alert': {'title': title, 'body': body},
-                'sound': 'default', // iOS Ses ve Kayan pencere için
+                'sound': 'default', 
                 'badge': 1,
               }
             }
@@ -94,7 +94,7 @@ class _ProductCommentsSheetState extends State<ProductCommentsSheet> {
     }
 
     if (targetUserId != null) {
-      // 1. Veritabanına Yaz
+      
       await FirebaseFirestore.instance
           .collection('users')
           .doc(targetUserId)
@@ -108,7 +108,7 @@ class _ProductCommentsSheetState extends State<ProductCommentsSheet> {
         'isRead': false,
       });
 
-      // 2. Push Gönder
+    
       var userDoc = await FirebaseFirestore.instance.collection('users').doc(targetUserId).get();
       if (userDoc.exists) {
         String? token = userDoc.data()?['fcmToken'];

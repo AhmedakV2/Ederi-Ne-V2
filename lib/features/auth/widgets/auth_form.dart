@@ -4,7 +4,7 @@ import 'role_button.dart';
 import '../../../data/city_data.dart';
 import '../../price/widgets_add/price_form_fields.dart';
 import '../../../core/utils/auth_validator.dart';
-import '../../../core/theme/app_theme.dart'; // AppTheme import'u eklendi
+import '../../../core/theme/app_theme.dart'; 
 
 class AuthForm extends StatelessWidget {
   final bool isLogin;
@@ -19,7 +19,7 @@ class AuthForm extends StatelessWidget {
   final Function(String?) onCityChanged;
   final Function(String?) onDistrictChanged;
 
-  // YENİ PARAMETRELER: Beni Hatırla Seçeneği İçin
+  
   final bool rememberMe;
   final Function(bool?) onRememberMeChanged;
 
@@ -36,15 +36,15 @@ class AuthForm extends StatelessWidget {
     this.selectedDistrict,
     required this.onCityChanged,
     required this.onDistrictChanged,
-    required this.rememberMe,          // Yeni
-    required this.onRememberMeChanged, // Yeni
+    required this.rememberMe,          
+    required this.onRememberMeChanged, 
   });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // 1. AD SOYAD (Sadece Kayıt Olurken)
+        
         if (!isLogin) ...[
           ThemeTextField(
             controller: nameController,
@@ -55,7 +55,7 @@ class AuthForm extends StatelessWidget {
           const SizedBox(height: 15),
         ],
 
-        // 2. E-POSTA ALANI
+        
         ThemeTextField(
           controller: emailController,
           hint: "E-posta",
@@ -66,7 +66,7 @@ class AuthForm extends StatelessWidget {
         ),
         const SizedBox(height: 15),
 
-        // 3. ŞİFRE ALANI
+        
         ThemeTextField(
           controller: passwordController,
           hint: "Şifre",
@@ -75,8 +75,7 @@ class AuthForm extends StatelessWidget {
           validator: AuthValidator.validatePassword,
         ),
 
-        // --- YENİ EKLENEN KISIM: BENİ HATIRLA KUTUCUĞU ---
-        // Şifre alanının hemen altında gösterilir
+        
         Padding(
           padding: const EdgeInsets.only(top: 5),
           child: Row(
@@ -88,13 +87,13 @@ class AuthForm extends StatelessWidget {
                   activeColor: AppTheme.accentGold,
                   checkColor: AppTheme.navyDark,
                   onChanged: onRememberMeChanged,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)), // Estetik için
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)), 
                 ),
               ),
               const Text(
                 "Beni Hatırla",
                 style: TextStyle(
-                  color: AppTheme.navyDark, // Arka plan beyaz olduğu için KOYU renk
+                  color: AppTheme.navyDark, 
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -102,7 +101,7 @@ class AuthForm extends StatelessWidget {
           ),
         ),
 
-        // 4. ROL VE KONUM ALANLARI (Sadece Kayıt Olurken)
+        
         if (!isLogin) ...[
           const SizedBox(height: 20),
           
@@ -128,7 +127,7 @@ class AuthForm extends StatelessWidget {
 
           const SizedBox(height: 20),
 
-          // --- MAĞAZA ADI ---
+          
           if (selectedRole == 1) ...[
             ThemeTextField(
               controller: storeController,
@@ -139,7 +138,7 @@ class AuthForm extends StatelessWidget {
             const SizedBox(height: 15),
           ],
 
-          // --- İL SEÇİMİ ---
+         
           PriceDropdown(
             value: selectedCity,
             hint: "İl Seçin",
@@ -150,7 +149,7 @@ class AuthForm extends StatelessWidget {
 
           const SizedBox(height: 15),
 
-          // --- İLÇE SEÇİMİ ---
+          
           PriceDropdown(
             value: selectedDistrict,
             hint: selectedCity == null ? "Önce İl Seçin" : "İlçe Seçin",

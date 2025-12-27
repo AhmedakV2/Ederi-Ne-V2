@@ -5,34 +5,34 @@ class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  // Şu anki kullanıcıyı getir
+  
   User? get currentUser => _auth.currentUser;
 
-  // --- KAYIT OL (Hem Auth hem Database) ---
+  
   Future<User?> signUp({
     required String email, 
     required String password,
-    required String name, // Kullanıcıdan isim de alacağız
+    required String name, 
   }) async {
     try {
-      // 1. Firebase Auth ile kullanıcı oluştur
+      
       UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
 
-      // 2. Firestore'a Kullanıcı Detaylarını Kaydet
+      
       if (userCredential.user != null) {
         await _firestore.collection('users').doc(userCredential.user!.uid).set({
           'uid': userCredential.user!.uid,
           'email': email,
           'name': name,
-          'profilePhoto': '', // Başlangıçta boş
-          'score': 0, // Puan
-          'followers': [], // Takipçiler
-          'following': [], // Takip edilenler
+          'profilePhoto': '', 
+          'score': 0, 
+          'followers': [], 
+          'following': [], 
           'createdAt': FieldValue.serverTimestamp(),
-          'bio': 'Ederine uygulamasını kullanıyor.', // Varsayılan söz
+          'bio': 'Ederine uygulamasını kullanıyor.', 
         });
       }
       return userCredential.user;
@@ -42,7 +42,7 @@ class AuthService {
     }
   }
 
-  // --- GİRİŞ YAP ---
+  
   Future<User?> signIn(String email, String password) async {
     try {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
@@ -56,7 +56,7 @@ class AuthService {
     }
   }
 
-  // --- ÇIKIŞ YAP ---
+  
   Future<void> signOut() async {
     await _auth.signOut();
   }

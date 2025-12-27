@@ -14,7 +14,7 @@ class ThemeTextField extends StatefulWidget {
     this.controller,
     required this.hint,
     required this.icon,
-    this.isPassword = false, // Varsayılan olarak false
+    this.isPassword = false, 
     this.keyboardType,
     this.validator,
   });
@@ -32,7 +32,7 @@ class _ThemeTextFieldState extends State<ThemeTextField> {
     _obscureText = widget.isPassword;
   }
 
-  // EKLENEN KISIM: Kodda bir değişiklik yapıldığında (örn: isPassword değiştiğinde) burası çalışır
+  
   @override
   void didUpdateWidget(covariant ThemeTextField oldWidget) {
     super.didUpdateWidget(oldWidget);
@@ -49,7 +49,7 @@ class _ThemeTextFieldState extends State<ThemeTextField> {
       margin: const EdgeInsets.only(bottom: 15),
       child: TextFormField(
         controller: widget.controller,
-        obscureText: _obscureText, // Gizlilik durumu buradan kontrol ediliyor
+        obscureText: _obscureText, 
         keyboardType: widget.keyboardType,
         validator: widget.validator,
         style: const TextStyle(color: AppTheme.navyDark),
@@ -60,7 +60,7 @@ class _ThemeTextFieldState extends State<ThemeTextField> {
             padding: const EdgeInsets.all(12),
             child: Icon(widget.icon, color: AppTheme.accentGold, size: 24),
           ),
-          // Sadece şifre alanıysa göz ikonunu göster
+          
           suffixIcon: widget.isPassword
               ? IconButton(
                   icon: Icon(
@@ -73,7 +73,7 @@ class _ThemeTextFieldState extends State<ThemeTextField> {
                     });
                   },
                 )
-              : null, // Şifre değilse ikon yok
+              : null, 
           errorStyle: const TextStyle(color: Colors.redAccent, fontSize: 12),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30),

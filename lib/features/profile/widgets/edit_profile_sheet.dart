@@ -75,7 +75,7 @@ class _EditProfileSheetState extends State<EditProfileSheet> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Handle Bar
+            
             Container(
                 width: 50,
                 height: 5,
@@ -90,7 +90,7 @@ class _EditProfileSheetState extends State<EditProfileSheet> {
                     color: AppTheme.navyDark)),
             const SizedBox(height: 30),
             
-            // --- AVATAR SEÇİMİ ---
+            
             const Align(
                 alignment: Alignment.centerLeft,
                 child: Text("Avatar Seçin",
@@ -134,7 +134,7 @@ class _EditProfileSheetState extends State<EditProfileSheet> {
             ),
             const SizedBox(height: 30),
 
-            // --- INPUT ALANLARI ---
+            
             _buildModalTextField(
                 nameController, "Ad Soyad / Kullanıcı Adı", Icons.person_outline),
             
@@ -144,7 +144,6 @@ class _EditProfileSheetState extends State<EditProfileSheet> {
                   storeController, "Mağaza Adı", Icons.store_outlined),
               
               const SizedBox(height: 15),
-              // İL SEÇİMİ (Hiyerarşik)
               _buildDropdownField(
                 label: "Şehir",
                 value: selectedCity,
@@ -153,18 +152,17 @@ class _EditProfileSheetState extends State<EditProfileSheet> {
                 onChanged: (val) {
                   setState(() {
                     selectedCity = val!;
-                    // İlçe listesini yeni ile göre güncelle ve ilk ilçeyi seç veya null yap
                     selectedDistrict = CityData.citiesAndDistricts[val]!.first;
                   });
                 },
               ),
 
               const SizedBox(height: 15),
-              // İLÇE SEÇİMİ (Seçili ile bağlı)
+              
               _buildDropdownField(
                 label: "İlçe",
                 value: selectedDistrict,
-                // Sadece seçili şehrin ilçelerini gösterir
+                
                 items: CityData.citiesAndDistricts[selectedCity] ?? [],
                 icon: Icons.map_outlined,
                 onChanged: (val) => setState(() => selectedDistrict = val!),
@@ -178,7 +176,7 @@ class _EditProfileSheetState extends State<EditProfileSheet> {
             
             const SizedBox(height: 35),
 
-            // --- KAYDET BUTONU ---
+            
             Container(
               width: double.infinity,
               height: 55,
@@ -231,7 +229,7 @@ class _EditProfileSheetState extends State<EditProfileSheet> {
         border: Border.all(color: AppTheme.accentGold.withOpacity(0.2)),
       ),
       child: DropdownButtonFormField<String>(
-        value: items.contains(value) ? value : items.first, // Güvenlik kontrolü
+        value: items.contains(value) ? value : items.first, 
         items: items.map((e) => DropdownMenuItem(value: e, child: Text(e))).toList(),
         onChanged: onChanged,
         decoration: InputDecoration(

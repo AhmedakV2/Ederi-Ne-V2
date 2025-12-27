@@ -4,8 +4,8 @@ import '../../../../data/city_data.dart';
 
 class PriceFilterModal extends StatefulWidget {
   final String? initialCategory;
-  final String? initialCity; // Yeni
-  final String? initialDistrict; // Yeni (Eski neighborhood)
+  final String? initialCity; 
+  final String? initialDistrict; 
   final RangeValues initialPriceRange;
   final Function(String? category, String? city, String? district, RangeValues priceRange) onApply;
 
@@ -24,8 +24,8 @@ class PriceFilterModal extends StatefulWidget {
 
 class _PriceFilterModalState extends State<PriceFilterModal> {
   String? filterCategory;
-  String? filterCity; // Yeni
-  String? filterDistrict; // Yeni
+  String? filterCity; 
+  String? filterDistrict; 
   late RangeValues filterPriceRange;
 
   @override
@@ -40,7 +40,7 @@ class _PriceFilterModalState extends State<PriceFilterModal> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.80, // İl eklendiği için yüksekliği biraz artırdık
+      height: MediaQuery.of(context).size.height * 0.80, 
       decoration: const BoxDecoration(
         gradient: AppTheme.primaryGradient,
         borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
@@ -102,18 +102,18 @@ class _PriceFilterModalState extends State<PriceFilterModal> {
                       
                       const SizedBox(height: 20),
                       
-                      // İL SEÇİMİ
+                      
                       _buildFilterLabel("İl"),
                       _buildDropdown(filterCity, CityData.cities, (val) {
                         setState(() {
                           filterCity = val;
-                          filterDistrict = null; // İl değişince ilçeyi sıfırla
+                          filterDistrict = null; 
                         });
                       }, "İl Seçin"),
                       
                       const SizedBox(height: 20),
 
-                      // İLÇE SEÇİMİ (İl seçilmeden kilitli)
+                      
                       _buildFilterLabel("İlçe"),
                       _buildDropdown(
                         filterDistrict, 
@@ -206,7 +206,7 @@ class _PriceFilterModalState extends State<PriceFilterModal> {
           icon: const Icon(Icons.keyboard_arrow_down, color: AppTheme.accentGold),
           style: const TextStyle(color: AppTheme.textWhite),
           items: items.map((e) => DropdownMenuItem(value: e, child: Text(e))).toList(),
-          onChanged: onChanged, // onChanged null ise dropdown otomatik kilitlenir
+          onChanged: onChanged, 
         ),
       ),
     );

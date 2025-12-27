@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart'; // 1. EKLENDİ: Firebase çekirdek paketi
-import 'firebase_options.dart'; // 2. EKLENDİ: Az önce oluşturduğumuz ayar dosyası
+import 'package:firebase_core/firebase_core.dart'; 
+import 'firebase_options.dart'; 
 
 import 'features/auth/splash_screen.dart';
 import 'core/theme/app_theme.dart';
 
-// 3. DEĞİŞTİ: main fonksiyonu 'async' yapıldı (bekleme yapabilmesi için)
 void main() async {
-  // 4. EKLENDİ: Flutter motorunu hazırlar (Firebase başlamadan önce şarttır)
+ 
   WidgetsFlutterBinding.ensureInitialized();
 
-  // 5. EKLENDİ: Firebase'i başlatma emri
+  
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

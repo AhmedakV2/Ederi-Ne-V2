@@ -13,7 +13,7 @@ class PriceItemCard extends StatelessWidget {
 
   PriceItemCard({super.key, required this.item});
 
-  // --- 1. YILDIZ VERME ---
+  
   void _rateProduct(BuildContext context, int rating) async {
     String? productId = item['id'];
     if (productId == null) return;
@@ -30,7 +30,7 @@ class PriceItemCard extends StatelessWidget {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Puan verildi: $rating ⭐")));
   }
 
-  // --- 2. FİYAT DOĞRULAMA ---
+  
   void _votePrice(BuildContext context, bool isTrue) async {
     String? productId = item['id'];
     if (productId == null || currentUserId.isEmpty) return;
@@ -66,7 +66,7 @@ class PriceItemCard extends StatelessWidget {
     await batch.commit();
   }
 
-  // --- 3. YORUMLARI AÇ ---
+  
   void _openComments(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -80,7 +80,7 @@ class PriceItemCard extends StatelessWidget {
     );
   }
 
-  // --- 4. PROFİLE GİT ---
+  
   void _goToProfile(BuildContext context) {
     String? ownerId = item['ownerId'];
     if (ownerId != null && ownerId.isNotEmpty) {
@@ -105,7 +105,7 @@ class PriceItemCard extends StatelessWidget {
     bool iConfirmed = confirmedUsers.contains(currentUserId);
     bool iReported = reportedUsers.contains(currentUserId);
 
-    // Konum stringini hazırlıyoruz
+    
     String locationInfo = "${item['city'] ?? 'Bilinmeyen İl'} / ${item['district'] ?? item['neighborhood'] ?? 'Bilinmeyen İlçe'}";
 
     return Padding(
@@ -128,7 +128,7 @@ class PriceItemCard extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // İKON
+                
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
@@ -139,12 +139,12 @@ class PriceItemCard extends StatelessWidget {
                 ),
                 const SizedBox(width: 16),
                 
-                // ORTA BİLGİLER
+                
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Ürün Adı ve Şüpheli Etiketi
+                      
                       Row(
                         children: [
                           Flexible(
@@ -164,7 +164,7 @@ class PriceItemCard extends StatelessWidget {
                       ),
                       const SizedBox(height: 6),
                       
-                      // KONUM BİLGİSİ (İl / İlçe)
+                      
                       Row(
                         children: [
                           const Icon(Icons.location_on_outlined, size: 14, color: AppTheme.accentGold),
@@ -181,7 +181,7 @@ class PriceItemCard extends StatelessWidget {
                       ),
                       const SizedBox(height: 4),
 
-                      // MARKET BİLGİSİ
+                      
                       Row(
                         children: [
                           const Icon(Icons.storefront, size: 14, color: Colors.white70),
@@ -198,7 +198,7 @@ class PriceItemCard extends StatelessWidget {
                       ),
                       const SizedBox(height: 8),
                       
-                      // PAYLAŞAN KİŞİ
+                     
                       InkWell(
                         onTap: () => _goToProfile(context),
                         child: Row(
@@ -223,7 +223,7 @@ class PriceItemCard extends StatelessWidget {
                   ),
                 ),
 
-                // SAĞ TARAF (FİYAT)
+                
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -232,7 +232,7 @@ class PriceItemCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 5),
                     
-                    // Yıldızlar
+                   
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: List.generate(5, (index) {
@@ -255,11 +255,11 @@ class PriceItemCard extends StatelessWidget {
             Divider(color: Colors.white.withValues(alpha: 0.1), height: 1),
             const SizedBox(height: 10),
 
-            // --- ALT KISIM ---
+            
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // YORUM BUTONU
+                
                 InkWell(
                   onTap: () => _openComments(context),
                   borderRadius: BorderRadius.circular(8),
@@ -275,7 +275,7 @@ class PriceItemCard extends StatelessWidget {
                   ),
                 ),
 
-                // DOĞRULAMA BUTONLARI
+                
                 Row(
                   children: [
                     InkWell(

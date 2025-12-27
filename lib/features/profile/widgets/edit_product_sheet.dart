@@ -23,7 +23,7 @@ class _EditProductSheetState extends State<EditProductSheet> {
   @override
   void initState() {
     super.initState();
-    // Mevcut verileri kutucuklara dolduruyoruz
+    
     _nameController = TextEditingController(text: widget.currentItem['name']);
     _priceController = TextEditingController(text: widget.currentItem['price'].toString());
     _marketController = TextEditingController(text: widget.currentItem['market']);
@@ -39,7 +39,7 @@ class _EditProductSheetState extends State<EditProductSheet> {
 
   @override
   Widget build(BuildContext context) {
-    // Klavye açılınca ekranı yukarı itmesi için padding
+    
     final bottomPadding = MediaQuery.of(context).viewInsets.bottom;
 
     return Container(
@@ -49,9 +49,9 @@ class _EditProductSheetState extends State<EditProductSheet> {
         borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
       ),
       child: Column(
-        mainAxisSize: MainAxisSize.min, // İçerik kadar yer kapla
+        mainAxisSize: MainAxisSize.min, 
         children: [
-          // Tutamaç Çubuğu
+          
           Container(
             width: 40,
             height: 4,
@@ -72,7 +72,7 @@ class _EditProductSheetState extends State<EditProductSheet> {
           ),
           const SizedBox(height: 20),
 
-          // --- ÜRÜN ADI ---
+          
           TextField(
             controller: _nameController,
             decoration: InputDecoration(
@@ -83,7 +83,7 @@ class _EditProductSheetState extends State<EditProductSheet> {
           ),
           const SizedBox(height: 15),
 
-          // --- FİYAT ---
+          
           TextField(
             controller: _priceController,
             keyboardType: const TextInputType.numberWithOptions(decimal: true),
@@ -95,7 +95,7 @@ class _EditProductSheetState extends State<EditProductSheet> {
           ),
           const SizedBox(height: 15),
 
-          // --- MARKET ---
+          
           TextField(
             controller: _marketController,
             decoration: InputDecoration(
@@ -106,7 +106,7 @@ class _EditProductSheetState extends State<EditProductSheet> {
           ),
           const SizedBox(height: 25),
 
-          // --- KAYDET BUTONU ---
+          
           SizedBox(
             width: double.infinity,
             height: 50,
@@ -119,7 +119,7 @@ class _EditProductSheetState extends State<EditProductSheet> {
                     price,
                     _marketController.text.trim(),
                   );
-                  Navigator.pop(context); // Pencereyi kapat
+                  Navigator.pop(context); 
                 }
               },
               style: ElevatedButton.styleFrom(

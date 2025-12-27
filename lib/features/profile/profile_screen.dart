@@ -8,7 +8,7 @@ import '../navigation/main_navigation.dart';
 import '../../core/theme/app_theme.dart';
 import '../auth/splash_screen.dart'; 
 
-// Widget Importları
+
 import 'widgets/edit_product_sheet.dart'; 
 import 'widgets/profile_header_content.dart';
 import 'widgets/profile_tabs.dart';
@@ -43,12 +43,12 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
     super.dispose();
   }
 
-  // --- PROFİL GÜNCELLEME VE SENKRONİZASYON ---
+  
   void _updateProfileAndProducts(String name, String bio, String avatar, String? storeName, String? city, String? district) async {
     if (currentUser == null) return;
 
     try {
-      // 1. Kullanıcı Profilini Güncelle
+     
       await usersRef.doc(currentUser!.uid).update({
         'name': name,
         'bio': bio,
@@ -58,7 +58,7 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
         'district': district,
       });
 
-      // 2. BU KULLANICININ TÜM ÜRÜNLERİNİ BUL VE GÜNCELLE (Batch Update)
+      
       var userProducts = await productsRef.where('ownerId', isEqualTo: currentUser!.uid).get();
       
       var batch = FirebaseFirestore.instance.batch();
@@ -73,10 +73,10 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
 
       await batch.commit(); 
 
-      // 3. Hafızayı Yenile
+      
       await db.loadUserData();
       
-      // Asenkron işlem sonrası mounted kontrolü
+      
       if (!mounted) return;
       setState(() {});
 
@@ -90,7 +90,7 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
     }
   }
 
-  // --- TAKİP SİSTEMİ ---
+  
   Future<void> _toggleFollow(String targetUserId, List<dynamic> currentFollowers) async {
     if (currentUser == null) return;
     final bool isFollowing = currentFollowers.contains(currentUser!.uid);
@@ -111,7 +111,7 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
     }
   }
 
-  // --- ÇIKIŞ YAP ---
+  
   void _handleLogout() async {
     bool? confirm = await showDialog<bool>(
       context: context,
@@ -137,7 +137,7 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
     }
   }
 
-  // --- ÜRÜN İŞLEMLERİ ---
+  
   void _deleteProduct(String productId) async {
     try {
       await productsRef.doc(productId).delete();

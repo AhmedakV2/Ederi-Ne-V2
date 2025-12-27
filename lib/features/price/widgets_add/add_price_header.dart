@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_theme.dart';
-// import '../price_list_screen.dart'; // Buna artık gerek yok
-import '../../navigation/main_navigation.dart'; // ✅ MainNavigation'ı import etmelisin (Dosya yolunu kendi projene göre ayarla)
+
+import '../../navigation/main_navigation.dart'; 
 
 class AddPriceHeader extends StatelessWidget {
   const AddPriceHeader({super.key});
@@ -18,7 +18,7 @@ class AddPriceHeader extends StatelessWidget {
           ),
         ),
 
-        // Arka plan ikonları (Süsleme)
+        
         Positioned(
           right: -30,
           top: -20,
@@ -29,7 +29,7 @@ class AddPriceHeader extends StatelessWidget {
           ),
         ),
 
-        // Başlık İçeriği
+        
         Positioned(
           top: 60,
           left: 20,
@@ -72,7 +72,7 @@ class AddPriceHeader extends StatelessWidget {
           ),
         ),
 
-        // ✅ DÜZELTİLEN KISIM: Çarpı Butonu
+        
         Positioned(
           top: 50,
           right: 15,
@@ -80,17 +80,16 @@ class AddPriceHeader extends StatelessWidget {
             icon: const Icon(Icons.close, color: Colors.white),
             onPressed: () {
               if (Navigator.canPop(context)) {
-                // Eğer geriye gidilebiliyorsa normal şekilde git
+                
                 Navigator.pop(context);
               } else {
-                // Eğer geriye gidilemiyorsa (örn: bildirimden geldiysen)
-                // PriceListScreen yerine ANA İSKELET OLAN MainNavigation'a git.
+                
                 Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(
-                    builder: (_) =>  MainNavigation(), // ✅ Burası değişti
+                    builder: (_) =>  MainNavigation(), 
                   ),
-                  (route) => false, // Geri tuşu geçmişini temizle
+                  (route) => false, 
                 );
               }
             },

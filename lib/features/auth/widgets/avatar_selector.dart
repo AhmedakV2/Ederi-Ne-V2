@@ -42,7 +42,7 @@ class AvatarSelector extends StatelessWidget {
                 backgroundColor: Colors.grey.shade200,
                 child: ClipOval(
                   child: Image.asset(
-                    avatars[index], // 👈 asset path burada
+                    avatars[index], 
                     width: 60,
                     height: 60,
                     fit: BoxFit.cover,
