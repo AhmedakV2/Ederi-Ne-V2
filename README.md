@@ -1,105 +1,132 @@
-# 🚀 Ederi Ne? - Akıllı Fiyat Takip & Doğrulama Platformu (v2.0.0 Stable)
+# 🚀 Ederi Ne?
+### Topluluk Tabanlı Akıllı Fiyat Doğrulama Platformu
 
-[![Flutter Version](https://img.shields.io/badge/Flutter-3.x-blue.svg)](https://flutter.dev)
-[![Platform](https://img.shields.io/badge/Platform-Android-green.svg)](https://android.com)
-[![Version](https://img.shields.io/badge/Version-v2.0.0--Stable-orange.svg)](https://github.com/AhmedakV2/Ederi-Ne-V2/releases)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Flutter](https://img.shields.io/badge/Flutter-3.x-blue)](https://flutter.dev)
+[![Android](https://img.shields.io/badge/Platform-Android-green)](https://android.com)
+[![Version](https://img.shields.io/badge/Release-v2.0.0--Stable-orange)](https://github.com/AhmedakV2/Ederi-Ne-V2/releases)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
-**Ederi Ne?**, enflasyonist ortamda tüketicinin en güçlü silahı olan "şeffaf bilgi paylaşımı" üzerine kurulu, topluluk odaklı bir fiyat takip ekosistemidir. Mahalle bakkalından zincir marketlere kadar her noktadaki güncel fiyatı, gerçek kullanıcı verileriyle cebinize getirir.
+**Ederi Ne?**, enflasyonist ekonomilerde tüketicinin yaşadığı en büyük problem olan  
+**“Gerçek fiyatı bilmeme”** sorununu çözen, topluluk destekli bir fiyat doğrulama platformudur.
 
----
-
-## 📝 Proje Vizyonu & Hakkında
-
-Günümüzün dinamik ekonomik koşullarında tüketicinin en büyük ihtiyacı güncel ve şeffaf bilgiye ulaşmaktır. **Ederi Ne?**, geleneksel fiyat karşılaştırma sitelerinin aksine odağını sokağa, mahalle marketine ve yerel satıcılara çevirir. 
-
-### 💡 Nasıl Değer Yaratır?
-* **Kolektif Veri**: Kullanıcılar gördükleri fiyatları saniyeler içinde yükler, böylece "en ucuz" reklamla değil, gerçek saha verisiyle belirlenir.
-* **Topluluk Denetimi**: Paylaşılan fiyatlar diğer kullanıcılar tarafından "Doğru" veya "Hatalı" olarak oylanır.
-* **Güven Endeksi**: 5 ve üzeri şikayet alan ürünler otomatik olarak **"ŞÜPHELİ"** etiketiyle işaretlenerek yanıltıcı bilginin önüne geçilir.
+Reklam verisine değil, **saha gerçeklerine** dayanır.
 
 ---
 
-## 📸 Uygulama Ekran Görüntüleri & Akışı
+## 🎯 Problem
 
-Uygulamanın v2.0.0 sürümüyle yenilenen modern arayüzü ve kullanıcı deneyimi (UX) akışı:
+- Marketler arası fiyat farkları kontrol edilemiyor  
+- Yerel satıcı fiyatları dijital platformlarda yer almıyor  
+- Mevcut fiyat karşılaştırma sistemleri:
+  - Sponsorlu
+  - Merkezî
+  - Manipülasyona açık  
 
-| Giriş Ekranı | Kayıt Ekranı | Ana Liste (v2) | Fiyat Ekleme | Profil & İstatistik |
-|:---:|:---:|:---:|:---:|:---:|
-| <img src="https://github.com/user-attachments/assets/e3054649-5f7c-46a5-b67d-83dfabeaf6e8" width="160"> | <img src="https://github.com/user-attachments/assets/833ee792-55ad-471e-8e7d-fd30606162fe" width="160"> | <img src="https://github.com/user-attachments/assets/e9cefe57-3a35-4caf-85bb-724b2cee9529" width="160"> | <img src="https://github.com/user-attachments/assets/5ed8866a-7725-46d8-8682-5a8312198eb0" width="160"> | <img src="https://github.com/user-attachments/assets/f7234faf-38af-4392-89ec-a357bd638382" width="160"> |
-
-> *Not: Ekran görüntüleri GitHub varlıkları üzerinden dinamik olarak yüklenmektedir.*
-
----
-
-## 📥 Hemen Deneyin (v2.0.0 APK)
-
-Uygulamanın en güncel ve kararlı sürümünü aşağıdaki butona tıklayarak doğrudan Android cihazınıza indirebilirsiniz:
-
-[![Download APK](https://img.shields.io/badge/İndir-Ederi_Ne_v2.0.0_APK-brightgreen?style=for-the-badge&logo=android)](https://github.com/AhmedakV2/Ederi-Ne-V2/raw/main/app-release.apk)
+Tüketici, **“en ucuz” değil “gerçek” fiyatı** arıyor.
 
 ---
 
-## 💎 v2.0.0 Sürümüyle Gelen Büyük Yenilikler
+## 💡 Çözüm: Ederi Ne?
 
-Bu güncelleme, projenin beta aşamasından tam kararlı sürüme geçişini temsil eder.
+**Ederi Ne?**, fiyat bilgisini merkezden değil **topluluktan** üretir.
 
-### 🔐 Gelişmiş Kimlik Doğrulama & Giriş
-* **Ayrıcalıklı Auth Deneyimi**: Giriş ve Kayıt süreçleri, kullanıcı dostu doğrulamalar ve modern bir tasarımla birbirinden ayrıldı.
-* **Avatar & Rol Sistemi**: Kayıt sırasında kullanıcıların kendilerini ifade edebileceği modern avatar seçimleri ve "Tüketici/Satıcı" rolleri eklendi.
+- Kullanıcılar fiyatı yerinde görür
+- Anında paylaşır
+- Diğer kullanıcılar doğrular
+- Sistem güven puanı üretir
 
-### 📍 Gelişmiş Konum Hassasiyeti
-* **Lokasyon Bazlı Kartlar**: Her ürün kartına entegre edilen **İl ve İlçe** bilgisi sayesinde, fiyatın nerede geçerli olduğu net bir şekilde görülmektedir.
-* **Gelişmiş UX**: Konum göstergeleri ve market ikonları ile arayüz hiyerarşisi optimize edildi.
-
-### 🔄 Akıllı Navigasyon & Senkronizasyon
-* **Profil-Liste Entegrasyonu**: Kullanıcı profilindeki paylaşımlardan ana listedeki ilgili ürüne "akıllı odaklanma" ile geçiş özelliği sağlandı.
-* **Hata Giderimi**: Açılıştaki `SplashScreen` donmaları ve `MainNavigation` üzerindeki `GlobalKey` çakışmaları tamamen çözüldü.
-
-### 🏗️ Teknik Mimari İyileştirmeleri
-* **Merkezi Veri Yönetimi**: `DataController` üzerinden yönetilen `allProductsList` yapısı ile veri yükleme hızı artırıldı.
-* **Güvenlik**: Hassas Firebase anahtarları (`service-account.json`) koruma altına alındı ve `.gitignore` yapılandırması güncellendi.
-* **Modern Dart**: Flutter 3.x uyumlu `withValues` renk yönetimi ve `const` constructor optimizasyonları yapıldı.
+Sonuç: **Şeffaf, doğrulanabilir ve yerel fiyat ekosistemi**
 
 ---
 
-## 🛠️ Teknoloji Yığını
-* **Framework**: Flutter (Dart)
-* **Backend**: Firebase (Firestore, Authentication)
-* **State Management**: DataController & GlobalKey Patterns
-* **Güvenlik**: GitHub Push Protection & Secret Scanning
+## 🧠 Nasıl Çalışır?
+
+1. Kullanıcı ürünü ve fiyatı ekler  
+2. Konum (İl / İlçe) ile birlikte kaydedilir  
+3. Topluluk doğrular veya hatalı olarak işaretler  
+4. Şüpheli veriler otomatik olarak geri plana düşer  
+
+> Sistem, güveni **algoritma + insan denetimi** ile üretir.
 
 ---
 
-## ⚙️ Geliştiriciler İçin Kurulum Rehberi
+## 📈 Neden Değerli?
 
-1. **Repoyu Klonlayın**:
-   ```bash
-   git clone [https://github.com/AhmedakV2/Ederi-Ne-V2.git](https://github.com/AhmedakV2/Ederi-Ne-V2.git)
+### 👥 Ağ Etkisi (Network Effect)
+Kullanıcı sayısı arttıkça:
+- Veri doğruluğu artar  
+- Platformun değeri katlanır  
 
-2. Bağımlılıkları Yükleyin
-flutter pub get
+### 📊 Doğrulanmış Veri
+- Reklam yok  
+- Sponsorlu fiyat yok  
+- Manipülasyon direnci yüksek  
 
-3. Firebase Yapılandırması
+### 🌍 Yerel → Ulusal → Global
+Model;
+- Türkiye’de yerel marketlerle başlar  
+- Gelişmekte olan tüm pazarlara ölçeklenebilir  
 
-Kendi google-services.json dosyanızı android/app/ dizinine ekleyin.
+---
 
-Firebase Console üzerinden Authentication ve Firestore servislerini aktif edin.
+## 📱 Ürün Görünümü (v2.0.0)
 
-4. Hassas Veriler ve Güvenlik
+| Giriş | Liste | Fiyat Ekle | Profil |
+|:--:|:--:|:--:|:--:|
+| <img src="https://github.com/user-attachments/assets/e3054649-5f7c-46a5-b67d-83dfabeaf6e8" width="150"> | <img src="https://github.com/user-attachments/assets/e9cefe57-3a35-4caf-85bb-724b2cee9529" width="150"> | <img src="https://github.com/user-attachments/assets/5ed8866a-7725-46d8-8682-5a8312198eb0" width="150"> | <img src="https://github.com/user-attachments/assets/f7234faf-38af-4392-89ec-a357bd638382" width="150"> |
 
-Firebase yapılandırma dosyalarınız GitHub tarafından engellenirse, güvenlik panelinden onay vermeniz gerekebilir.
+---
 
-Güvenlik için hassas .json dosyalarınızı .gitignore dosyasına eklemeyi unutmayın.
+## 🚀 Ürünün Mevcut Durumu
 
-5. Uygulamayı Çalıştırın
-flutter run
+- ✅ **v2.0.0 Stable**
+- ✅ Aktif çalışan mobil uygulama
+- ✅ Firebase altyapısı
+- ✅ Topluluk doğrulama mekanizması
+- 🔄 Sürekli geliştirilebilir mimari
 
-🤝 Katkıda Bulunma
+---
 
-Bu proje açık kaynaklı bir topluluk girişimidir.
-Katkı sağlamak isterseniz bir Issue açabilir veya doğrudan Pull Request gönderebilirsiniz.
+## 🧩 Teknoloji
 
-Geliştirici: AhmedakV2
-Sürüm: v2.0.0-Stable
-Dosya Boyutu: ~51.1 MB
+- **Frontend**: Flutter (Android)
+- **Backend**: Firebase (Firestore, Auth)
+- **Mimari**: Merkezi veri kontrolü
+- **Güvenlik**: Secret Scanning & Push Protection
+
+> Teknik yığın, hızlı iterasyon ve düşük operasyon maliyeti için seçilmiştir.
+
+---
+
+## 📥 Demo (APK)
+
+Canlı ürünü denemek için:
+
+[![Download APK](https://img.shields.io/badge/Android-APK_İndir-brightgreen?style=for-the-badge)](https://github.com/AhmedakV2/Ederi-Ne-V2/raw/main/app-release.apk)
+
+---
+
+## 🌱 Gelecek Vizyonu
+
+- 📍 Harita tabanlı fiyat yoğunluğu
+- 🤖 Anomali tespiti (AI destekli)
+- 🏪 Satıcı panelleri
+- 📊 Açık veri & API
+- 🌍 Uluslararası pazarlar
+
+---
+
+## 🤝 Katkı & İş Birliği
+
+Bu proje:
+- Açık kaynaklıdır
+- Toplulukla büyür
+- Yatırıma ve stratejik ortaklıklara açıktır
+
+---
+
+## 👤 Proje Bilgileri
+
+- **Geliştirici**: AhmedakV2  
+- **Sürüm**: v2.0.0 – Stable  
+- **Lisans**: MIT  
