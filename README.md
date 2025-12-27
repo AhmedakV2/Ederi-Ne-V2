@@ -4,7 +4,9 @@
 [![Flutter](https://img.shields.io/badge/Flutter-3.x-blue)](https://flutter.dev)
 [![Android](https://img.shields.io/badge/Platform-Android-green)](https://android.com)
 [![Version](https://img.shields.io/badge/Release-v2.0.0--Stable-orange)](https://github.com/AhmedakV2/Ederi-Ne-V2/releases)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/AhmedakV2/Ederi-Ne-V2?color=orange)
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
+![GitHub License](https://img.shields.io/github/license/AhmedakV2/Ederi-Ne-V2?color=yellow)
 
 **Ederi Ne?**, enflasyonist ekonomilerde tüketicinin yaşadığı en büyük problem olan  
 **“Gerçek fiyatı bilmeme”** sorununu çözen, topluluk destekli bir fiyat doğrulama platformudur.
