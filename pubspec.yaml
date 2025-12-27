@@ -1,0 +1,50 @@
+name: ederine_v2
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.5.0 # Sürüm numaranı senin ayarlarına göre bıraktım ama genelde 3.5.x civarıdır
+
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_core: ^4.3.0
+  firebase_auth: ^6.1.3
+  cloud_firestore: ^6.1.1
+  shared_preferences: ^2.5.4
+  intl: ^0.20.2
+  firebase_messaging: ^16.1.0
+  http: ^1.6.0
+  googleapis_auth: ^2.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.13.1
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/service-account.json
+    - assets/images/
+
+# --- İKON AYARLARI ---
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/Logo.png"
+  min_sdk_android: 21
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/images/Logo.png"
+  web: # Web (Chrome) ikonları için
+    generate: true
+    image_path: "assets/images/Logo.png"
+    background_color: "#FFFFFF"
+    theme_color: "#FFFFFF"
+  windows: # Windows masaüstü ikonları için
+    generate: true
+    image_path: "assets/images/Logo.png"
+    icon_size: 48
