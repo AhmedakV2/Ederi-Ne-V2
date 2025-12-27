@@ -26,7 +26,10 @@ Uygulamanın v2.0.0 sürümüyle yenilenen modern arayüzü ve kullanıcı deney
 
 | Giriş Ekranı | Kayıt Ekranı | Ana Liste (v2) | Fiyat Ekleme | Profil & İstatistik |
 |:---:|:---:|:---:|:---:|:---:|
-| <img src="screenshots/login.png" width="160"> | <img src="screenshots/register.png" width="160"> | <img src="screenshots/home.png" width="160"> | <img src="screenshots/add.png" width="160"> | <img src="screenshots/profile.png" width="160"> |
+| ![Griş](https://github.com/user-attachments/assets/e3054649-5f7c-46a5-b67d-83dfabeaf6e8)| ![Kayıt](https://github.com/user-attachments/assets/833ee792-55ad-471e-8e7d-fd30606162fe)
+ | ![Fiyat_listesi](https://github.com/user-attachments/assets/e9cefe57-3a35-4caf-85bb-724b2cee9529)
+ |![Fİyat_ekle](https://github.com/user-attachments/assets/5ed8866a-7725-46d8-8682-5a8312198eb0)
+ | ![Profil](https://github.com/user-attachments/assets/f7234faf-38af-4392-89ec-a357bd638382) |
 
 > *Not: Ekran görüntülerini aktif etmek için `screenshots/` klasörüne ilgili dosyaları (`login.png`, `register.png`, `home.png`, `add.png`, `profile.png`) yüklemeyi unutmayın.*
 
