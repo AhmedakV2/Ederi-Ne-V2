@@ -24,11 +24,11 @@ Günümüzün dinamik ekonomik koşullarında tüketicinin en büyük ihtiyacı 
 
 Uygulamanın v2.0.0 sürümüyle yenilenen modern arayüzü ve kullanıcı deneyimi (UX) akışı:
 
-| Giriş & Kayıt | Ana Liste (v2) | Ürün Detay & Yorum | Fiyat Ekleme | Profil & İstatistik |
+| Giriş Ekranı | Kayıt Ekranı | Ana Liste (v2) | Fiyat Ekleme | Profil & İstatistik |
 |:---:|:---:|:---:|:---:|:---:|
-| <img src="screenshots/auth.png" width="180"> | <img src="screenshots/home.png" width="180"> | <img src="screenshots/comments.png" width="180"> | <img src="screenshots/add.png" width="180"> | <img src="screenshots/profile.png" width="180"> |
+| <img src="screenshots/login.png" width="160"> | <img src="screenshots/register.png" width="160"> | <img src="screenshots/home.png" width="160"> | <img src="screenshots/add.png" width="160"> | <img src="screenshots/profile.png" width="160"> |
 
-> *Not: Ekran görüntülerini aktif etmek için `screenshots/` klasörüne ilgili dosyaları yüklemeyi unutmayın.*
+> *Not: Ekran görüntülerini aktif etmek için `screenshots/` klasörüne ilgili dosyaları (`login.png`, `register.png`, `home.png`, `add.png`, `profile.png`) yüklemeyi unutmayın.*
 
 ---
 
@@ -45,8 +45,8 @@ Uygulamanın en güncel ve kararlı sürümünü aşağıdaki butona tıklayarak
 Bu güncelleme, projenin beta aşamasından tam kararlı sürüme geçişini temsil eder.
 
 ### 🔐 Gelişmiş Kimlik Doğrulama & Giriş
+* **Ayrıcalıklı Auth Deneyimi:** Giriş ve Kayıt süreçleri, kullanıcı dostu doğrulamalar ve modern bir tasarımla birbirinden ayrıldı.
 * **Avatar & Rol Sistemi:** Kayıt sırasında kullanıcıların kendilerini ifade edebileceği modern avatar seçimleri ve "Tüketici/Satıcı" rolleri eklendi.
-* **Modern Auth Arayüzü:** Giriş ve kayıt ekranları, kullanıcıyı karşılayan şık ve dinamik bir yapıyla yeniden tasarlandı.
 
 ### 📍 Gelişmiş Konum Hassasiyeti
 * **Lokasyon Bazlı Kartlar:** Her ürün kartına entegre edilen **İl ve İlçe** bilgisi sayesinde, fiyatın nerede geçerli olduğu net bir şekilde görülmektedir.
