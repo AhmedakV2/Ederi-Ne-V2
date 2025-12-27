@@ -1,5 +1,5 @@
 # 🚀 Ederi Ne?
-### Topluluk Tabanlı Akıllı Fiyat Doğrulama Platform
+### Topluluk Tabanlı Akıllı Fiyat Doğrulama Platformu
 
 [![Flutter](https://img.shields.io/badge/Flutter-3.x-blue)](https://flutter.dev)
 [![Android](https://img.shields.io/badge/Platform-Android-green)](https://android.com)
