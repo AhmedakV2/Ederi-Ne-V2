@@ -71,14 +71,14 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
         });
       }
 
-      await batch.commit(); 
+      await batch.commit(); //Tüm ürün güncellemelerini işle
 
       
-      await db.loadUserData();
+      await db.loadUserData(); //Güncellenmiş kullanıcı verilerini yükle
       
       
-      if (!mounted) return;
-      setState(() {});
+      if (!mounted) return; //Widget hala mevcut mu kontrol et
+      setState(() {}); //Profil ekranını güncelle
 
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Profil ve tüm ürünler güncellendi!"), backgroundColor: Colors.green),
@@ -112,7 +112,7 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
   }
 
   
-  void _handleLogout() async {
+  void _handleLogout() async { 
     bool? confirm = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(

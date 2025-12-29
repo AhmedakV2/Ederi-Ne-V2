@@ -3,7 +3,7 @@ import '../../../../core/theme/app_theme.dart';
 import '../../../../data/data_controller.dart';
 import '../../../../data/city_data.dart';
 
-class EditProfileSheet extends StatefulWidget {
+class EditProfileSheet extends StatefulWidget { 
   final String currentName;
   final String currentBio;
   final String currentAvatar;
@@ -26,7 +26,7 @@ class EditProfileSheet extends StatefulWidget {
   });
 
   @override
-  State<EditProfileSheet> createState() => _EditProfileSheetState();
+  State<EditProfileSheet> createState() => _EditProfileSheetState(); 
 }
 
 class _EditProfileSheetState extends State<EditProfileSheet> {

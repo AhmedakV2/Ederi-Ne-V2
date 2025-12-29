@@ -2,12 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class DataController {
-  // Singleton Yapısı
-  static final DataController _instance = DataController._internal();
-  factory DataController() => _instance;
-  DataController._internal();
-
+// 1. ADIM: ChangeNotifier ekledik
+class DataController with ChangeNotifier {
+  
   // --- KAYDIRMA KONTROLÜ ---
   final ScrollController mainScrollController = ScrollController();
 
@@ -54,6 +51,9 @@ class DataController {
           if (data['following'] != null) {
               followingIds = List<String>.from(data['following']);
           }
+          
+          // 2. ADIM: Veri çekilince ekranı haberdar ediyoruz
+          notifyListeners(); 
         }
       } catch (e) {
         debugPrint("Veri çekme hatası: $e");
@@ -63,14 +63,11 @@ class DataController {
 
   // --- YÖNLENDİRME VE KAYDIRMA FONKSİYONU ---
   void scrollToProduct(String productId, List<Map<String, dynamic>> products) {
-    // Ürünün listedeki indeksini bulur
     int index = products.indexWhere((item) => item['id'] == productId);
     
     if (index != -1 && mainScrollController.hasClients) {
-      // Tahmini kart yüksekliği (130.0) üzerinden konumu hesaplar
       double targetOffset = index * 130.0; 
       
-      // Belirtilen konuma yumuşak geçiş yapar
       mainScrollController.animateTo(
         targetOffset,
         duration: const Duration(milliseconds: 700),
@@ -97,6 +94,9 @@ class DataController {
     userCity = null;
     userDistrict = null;
     followingIds.clear();
-    allProductsList.clear(); // Hafızadaki listeyi temizle
+    allProductsList.clear(); 
+    
+    // 3. ADIM: Çıkış yapıldığını tüm sayfalara bildiriyoruz
+    notifyListeners();
   }
 }

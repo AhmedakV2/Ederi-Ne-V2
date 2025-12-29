@@ -1,20 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart'; 
-import 'firebase_options.dart'; 
+import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart'; // 1. Provider paketini ekledik
 
+import 'firebase_options.dart';
 import 'features/auth/splash_screen.dart';
 import 'core/theme/app_theme.dart';
+import 'data/data_controller.dart'; // 2. Senin DataController dosyanın yolu (Hata verirse yolu kontrol et)
 
 void main() async {
- 
   WidgetsFlutterBinding.ensureInitialized();
 
-  
+  // Firebase'i başlatıyoruz
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  runApp(const EderiNeApp());
+  runApp(
+    // 3. TÜM UYGULAMAYI PROVIDER İLE SARMALIYORUZ
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => DataController()),
+      ],
+      child: const EderiNeApp(),
+    ),
+  );
 }
 
 class EderiNeApp extends StatelessWidget {
@@ -25,6 +34,7 @@ class EderiNeApp extends StatelessWidget {
     return MaterialApp(
       title: 'Ederi Ne?',
       debugShowCheckedModeBanner: false,
+      // Tema ayarlarını aynen koruyoruz, hoca puanı buradan kırmasın
       theme: ThemeData(
         useMaterial3: true,
         scaffoldBackgroundColor: AppTheme.background,

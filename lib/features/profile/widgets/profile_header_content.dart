@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/theme/app_theme.dart';
 
 class ProfileHeaderContent extends StatelessWidget {
-  final String displayName;
+  final String displayName; 
   final String avatarPath;
   final bool isTargetSeller;
   final bool isMyProfile;
@@ -38,7 +38,7 @@ class ProfileHeaderContent extends StatelessWidget {
           
           
           Container(
-            padding: const EdgeInsets.all(4),
+            padding: const EdgeInsets.all(4), 
             decoration: const BoxDecoration(
                 shape: BoxShape.circle, color: Colors.white),
             child: CircleAvatar(
@@ -91,7 +91,7 @@ class ProfileHeaderContent extends StatelessWidget {
                 const SizedBox(width: 10), 
                 
                 
-                Expanded(
+                Expanded( 
                   child: _buildStatCard(
                     icon: Icons.star_rounded,
                     value: rating.toString(),

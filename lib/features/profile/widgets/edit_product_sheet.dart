@@ -1,49 +1,49 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_theme.dart';
 
-class EditProductSheet extends StatefulWidget {
-  final Map<String, dynamic> currentItem;
-  final Function(String name, double price, String market) onSave;
+class EditProductSheet extends StatefulWidget { //Ürün düzenleme alt sayfası
+  final Map<String, dynamic> currentItem; //Düzenlenecek ürün bilgileri
+  final Function(String name, double price, String market) onSave; //Kaydetme işlevi
 
-  const EditProductSheet({
+  const EditProductSheet({ //Ürün düzenleme alt sayfası
     super.key,
     required this.currentItem,
     required this.onSave,
   });
 
   @override
-  State<EditProductSheet> createState() => _EditProductSheetState();
+  State<EditProductSheet> createState() => _EditProductSheetState(); //Durum oluşturma
 }
 
-class _EditProductSheetState extends State<EditProductSheet> {
-  late TextEditingController _nameController;
-  late TextEditingController _priceController;
-  late TextEditingController _marketController;
+class _EditProductSheetState extends State<EditProductSheet> { //Ürün düzenleme alt sayfası durumu
+  late TextEditingController _nameController; //Ürün adı denetleyicisi
+  late TextEditingController _priceController; //Ürün fiyat denetleyicisi
+  late TextEditingController _marketController; //Ürün market denetleyicisi
 
   @override
-  void initState() {
-    super.initState();
+  void initState() { //Başlatma işlemleri
+    super.initState(); //Üst sınıf başlatma
     
-    _nameController = TextEditingController(text: widget.currentItem['name']);
-    _priceController = TextEditingController(text: widget.currentItem['price'].toString());
-    _marketController = TextEditingController(text: widget.currentItem['market']);
+    _nameController = TextEditingController(text: widget.currentItem['name']); //Mevcut ürün adını ayarla
+    _priceController = TextEditingController(text: widget.currentItem['price'].toString()); //Mevcut ürün fiyatını ayarla
+    _marketController = TextEditingController(text: widget.currentItem['market']); //Mevcut ürün marketini ayarla
   }
 
   @override
-  void dispose() {
-    _nameController.dispose();
+  void dispose() { //Kaynakları serbest bırakma
+    _nameController.dispose(); 
     _priceController.dispose();
     _marketController.dispose();
     super.dispose();
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { 
     
-    final bottomPadding = MediaQuery.of(context).viewInsets.bottom;
+    final bottomPadding = MediaQuery.of(context).viewInsets.bottom; //Klavye yüksekliğini al
 
     return Container(
-      padding: EdgeInsets.only(top: 20, left: 20, right: 20, bottom: bottomPadding + 20),
+      padding: EdgeInsets.only(top: 20, left: 20, right: 20, bottom: bottomPadding + 20), //Klavye yüksekliğine göre alt boşluk ekle
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
@@ -107,7 +107,7 @@ class _EditProductSheetState extends State<EditProductSheet> {
           const SizedBox(height: 25),
 
           
-          SizedBox(
+          SizedBox( 
             width: double.infinity,
             height: 50,
             child: ElevatedButton(
